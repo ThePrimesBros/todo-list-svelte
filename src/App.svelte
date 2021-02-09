@@ -5,9 +5,8 @@
 
   import TodoItem from './todo-item.svelte'
 
-  
   let db = new PouchDB('db')
-  const replication = PouchDB.sync('db', 'http://localhost:5984/svelte-todo-db', {
+  const replication = PouchDB.sync('db', 'http://localhost:8080/', {
     live: true,
     retry: true
   }).on('change', async function (info) {
@@ -45,10 +44,10 @@
       createdAt: new Date().toISOString()
     }
     const addition = await db.post(newTodo)
+    console.log(newTodoText.currentTarget)
     if (addition.ok) {
       await updateTodos()
     }
-    newTodoText = ''
   }
 
   async function updateStatus(event) {
