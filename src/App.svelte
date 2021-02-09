@@ -43,11 +43,18 @@
       complete: false,
       createdAt: new Date().toISOString()
     }
-    const addition = await db.post(newTodo)
-    console.log(newTodoText.currentTarget)
-    if (addition.ok) {
-      await updateTodos()
+    if (newTodoText != ''){
+      const addition = await db.post(newTodo)
+      if (addition.ok) {
+        await updateTodos()
+      }
+    }else{
+      alert('Veuillez rentré un tache valide')
     }
+    
+
+    console.log(newTodoText)
+
   }
 
   async function updateStatus(event) {
