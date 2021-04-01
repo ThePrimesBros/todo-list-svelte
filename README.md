@@ -1,6 +1,7 @@
 # Todo-List avec PouchDB et Svelte
 
 Todo list dévelopé en Svelte avec PouchDB
+Projet réalisé avec Romain Baert
 
 ## Pour démarer
 
